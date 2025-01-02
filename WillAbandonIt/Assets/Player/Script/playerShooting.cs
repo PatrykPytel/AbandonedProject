@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playerShooting : MonoBehaviour
 {
-    private float cooldown = 0.5f;
+    private float cooldown = 0.3f;
     private float restartcooldown;
     public float damage = 0.5f;
     public GameObject bullet;
@@ -17,6 +17,7 @@ public class playerShooting : MonoBehaviour
     void Start()
     {
         restartcooldown = cooldown;
+        cooldown = 0;
     }
     void Update()
     {
@@ -25,13 +26,16 @@ public class playerShooting : MonoBehaviour
 
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
 
-        if (Input.GetKeyDown(KeyCode.Z) && cooldown <= 0)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && cooldown <= 0)
         {
             GameObject bulletClone = Instantiate(bullet);
             bulletClone.transform.position = firePoint.position;
             bulletClone.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
 
             bulletClone.GetComponent<Rigidbody2D>().velocity = firePoint.right * bulletSpeed;
+            cooldown = restartcooldown;
+            
+            
         }
         else
         {
@@ -39,6 +43,7 @@ public class playerShooting : MonoBehaviour
         }
 
     }
+
    // private void OnTriggerEnter2D(Collider2D collision)
   //  {
      //   if (collision.GetComponent<Hpwrogow>() != null)
