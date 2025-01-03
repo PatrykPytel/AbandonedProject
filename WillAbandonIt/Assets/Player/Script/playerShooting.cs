@@ -12,7 +12,7 @@ public class playerShooting : MonoBehaviour
     public float bulletSpeed = 50;
     [SerializeField] private playerController Finalmovement;
 
-    Vector2 lookDirection;
+    public Vector2 lookDirection;
     float lookAngle;
     void Start()
     {
@@ -21,9 +21,10 @@ public class playerShooting : MonoBehaviour
     }
     void Update()
     {
+       // lookDirection = Finalmovement.movementDirection;
         lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-
+       // lookAngle = Finalmovement.movementDirection;
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && cooldown <= 0)

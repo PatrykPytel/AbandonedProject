@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class bulletKill : MonoBehaviour
 {
-    public float bulletCooldown = 1f;
+    public float bulletCooldown = 5f;
     [SerializeField] private GameObject bullet; 
     [SerializeField] private HealthDown healthDown;
     // Start is called before the first frame update
@@ -34,6 +34,7 @@ public class bulletKill : MonoBehaviour
             Destroy(bullet);
         }else if (collision.tag != "Enemy" &&  collision.tag != "Player")
         {
+         
             Destroy(bullet);
         }
     }
