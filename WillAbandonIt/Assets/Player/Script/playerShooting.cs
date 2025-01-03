@@ -44,12 +44,4 @@ public class playerShooting : MonoBehaviour
 
     }
 
-   // private void OnTriggerEnter2D(Collider2D collision)
-  //  {
-     //   if (collision.GetComponent<Hpwrogow>() != null)
-      //  {
-       //     collision.GetComponent<Hpwrogow>().mhp -= damage;
-
-        //}
-//    }
 }

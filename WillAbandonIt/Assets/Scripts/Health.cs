@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerHealth : MonoBehaviour
+public class Health : MonoBehaviour
 {
-    public int health;
-    private int oldhealth;
+    public float health;
+    private float oldhealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,17 +16,20 @@ public class playerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0)
+        if (health <= 0f)
         {
             Debug.Log("Nie zyjesz");
+            oldhealth = health;
         }
         else if (oldhealth > health)
         {
             Debug.Log("Straciles zycie");
+            oldhealth = health;
         }
         else if (oldhealth < health)
         {
             Debug.Log("Zyskales zycie");
+            oldhealth = health;
         }
     }
 }
