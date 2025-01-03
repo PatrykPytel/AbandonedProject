@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class simplePShooting : MonoBehaviour
 {
-    private float cooldown = 0.1f;
+    public float cooldown = 0.1f;
     private float restartcooldown;
     public GameObject bullet;
     public Transform firePoint;
